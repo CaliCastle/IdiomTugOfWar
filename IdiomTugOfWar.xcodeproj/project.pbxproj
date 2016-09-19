@@ -13,6 +13,7 @@
 		F1C129571D8A67E2001654A9 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C129561D8A67E2001654A9 /* MessagesViewController.swift */; };
 		F1C1295A1D8A67E2001654A9 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1C129581D8A67E2001654A9 /* MainInterface.storyboard */; };
 		F1C1295C1D8A67E2001654A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1C1295B1D8A67E2001654A9 /* Assets.xcassets */; };
+		F1CB37081D909BFE0021E78B /* StartUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CB37071D909BFE0021E78B /* StartUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		F1C129591D8A67E2001654A9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		F1C1295B1D8A67E2001654A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F1C1295D1D8A67E2001654A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1CB37071D909BFE0021E78B /* StartUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				F1C129581D8A67E2001654A9 /* MainInterface.storyboard */,
 				F1C1295B1D8A67E2001654A9 /* Assets.xcassets */,
 				F1C1295D1D8A67E2001654A9 /* Info.plist */,
+				F1CB37071D909BFE0021E78B /* StartUpViewController.swift */,
 			);
 			path = MessagesExtension;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1CB37081D909BFE0021E78B /* StartUpViewController.swift in Sources */,
 				F1C129571D8A67E2001654A9 /* MessagesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,6 +345,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -355,6 +360,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -405,6 +411,7 @@
 				F1C129621D8A67E2001654A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F1C129641D8A67E2001654A9 /* Build configuration list for PBXNativeTarget "IdiomTugOfWar" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +420,7 @@
 				F1C129661D8A67E2001654A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

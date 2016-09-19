@@ -26,8 +26,9 @@ class MessagesViewController: MSMessagesAppViewController {
     override func willBecomeActive(with conversation: MSConversation) {
         // Called when the extension is about to move from the inactive to active state.
         // This will happen when the extension is about to present UI.
+        super.willBecomeActive(with: conversation)
         
-        // Use this method to configure the extension and restore previously stored state.
+        presentViewController(for: conversation, with: presentationStyle)
     }
     
     override func didResignActive(with conversation: MSConversation) {
@@ -68,5 +69,56 @@ class MessagesViewController: MSMessagesAppViewController {
     
         // Use this method to finalize any behaviors associated with the change in presentation style.
     }
+    
+    private func presentViewController(for conversation : MSConversation, with style : MSMessagesAppPresentationStyle) {
+        let controller : UIViewController
+        
+        if style == .compact {
+            controller = instantiateStartUpController()
+        } else {
+            controller = UIViewController()
+        }
+        
+        // Remove any existing child controllers.
+        for child in childViewControllers {
+            child.willMove(toParentViewController: nil)
+            child.view.removeFromSuperview()
+            child.removeFromParentViewController()
+        }
+        
+        setupController(for: controller)
+    }
 
+    // MARK: Helper Methods
+    
+    private func instantiateStartUpController() -> UIViewController {
+        guard let controller = storyboard?.instantiateViewController(withIdentifier: StartUpViewController.storyboardIdentifier) as? StartUpViewController else {
+            fatalError("Unable to instantiate StartUpViewController.")
+        }
+        
+        controller.delegate = self
+        
+        return controller
+    }
+    
+    private func setupController(for controller : UIViewController) {
+        addChildViewController(controller)
+        
+        controller.view.frame = view.bounds
+        controller.view.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(controller.view)
+        
+        controller.view.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        controller.view.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        controller.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        controller.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        controller.didMove(toParentViewController: self)
+    }
+}
+
+extension MessagesViewController : StartUpViewControllerDelegate {
+    func startDidTap(_ controller: StartUpViewController) {
+        requestPresentationStyle(.expanded)
+    }
 }
