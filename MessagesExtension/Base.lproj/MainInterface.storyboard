@@ -15,15 +15,14 @@
                         <viewControllerLayoutGuide type="bottom" id="n38-gi-rB5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zMn-AG-sqS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="528"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X47-rx-isc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="71" y="152"/>
         </scene>
         <!--Start Up View Controller-->
         <scene sceneID="tq5-jI-HAk">
@@ -43,7 +42,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zBh-cz-vA6">
-                                <state key="normal" title="开始"/>
+                                <color key="backgroundColor" red="0.74509805439999999" green="0.15686275059999999" blue="0.074509806930000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="8Lg-Bp-ooD"/>
+                                    <constraint firstAttribute="width" constant="90" id="rW9-CL-IJf"/>
+                                </constraints>
+                                <state key="normal" title="发起挑战">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="startButtonDidTap:" destination="Oaa-Sk-fJq" eventType="touchUpInside" id="rs4-b8-zm8"/>
                                 </connections>
@@ -57,10 +63,31 @@
                             <constraint firstItem="zBh-cz-vA6" firstAttribute="centerX" secondItem="Z9h-2t-9PN" secondAttribute="centerX" id="tPy-ZE-kmp"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="startButton" destination="zBh-cz-vA6" id="TYh-Pl-RoW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CXN-XC-Euu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="808.79999999999995" y="167.76611694152925"/>
+            <point key="canvasLocation" x="809" y="152"/>
+        </scene>
+        <!--In Progress View Controller-->
+        <scene sceneID="Ba9-jh-bOg">
+            <objects>
+                <viewController storyboardIdentifier="InProgressViewController" id="7u5-VD-Zh5" customClass="InProgressViewController" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bMa-eb-jvS"/>
+                        <viewControllerLayoutGuide type="bottom" id="bvz-yF-Jsx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gjx-7V-by9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gR2-48-efM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1583" y="152"/>
         </scene>
     </scenes>
 </document>

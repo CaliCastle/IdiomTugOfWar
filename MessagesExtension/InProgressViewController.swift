@@ -1,5 +1,5 @@
 //
-//  StartUpViewController.swift
+//  InProgressViewController.swift
 //  IdiomTugOfWar
 //
 //  Created by Cali Castle on 19/09/2016.
@@ -8,20 +8,14 @@
 
 import UIKit
 
-class StartUpViewController: UIViewController {
+class InProgressViewController: UIViewController {
 
-    // MARK: Properties
-    
-    static let storyboardIdentifier = "StartUpViewController"
-    
-    weak var delegate : StartUpViewControllerDelegate?
-    
-    @IBOutlet weak var startButton: UIButton!
+    static let storyboardIdentifier = "InProgressViewController"
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        decorateStartButton()
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,15 +23,6 @@ class StartUpViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    private func decorateStartButton() {
-        startButton.layer.masksToBounds = true
-        startButton.layer.cornerRadius = 10
-    }
-    
-    @IBAction func startButtonDidTap(_ sender: AnyObject) {
-        delegate?.startDidTap(self)
-    }
-
     /*
     // MARK: - Navigation
 
@@ -48,8 +33,4 @@ class StartUpViewController: UIViewController {
     }
     */
 
-}
-
-protocol StartUpViewControllerDelegate: class {
-    func startDidTap(_ controller: StartUpViewController)
 }

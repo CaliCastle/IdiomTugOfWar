@@ -70,6 +70,10 @@ class MessagesViewController: MSMessagesAppViewController {
         // Use this method to finalize any behaviors associated with the change in presentation style.
     }
     
+    /// Present a new controller based on different conditions.
+    ///
+    /// - parameter conversation: Associated conversation
+    /// - parameter style:        Presentation style
     private func presentViewController(for conversation : MSConversation, with style : MSMessagesAppPresentationStyle) {
         let controller : UIViewController
         
@@ -91,6 +95,9 @@ class MessagesViewController: MSMessagesAppViewController {
 
     // MARK: Helper Methods
     
+    /// Instantiate the StartUpViewController and give back the instance.
+    ///
+    /// - returns: Instantiated controller
     private func instantiateStartUpController() -> UIViewController {
         guard let controller = storyboard?.instantiateViewController(withIdentifier: StartUpViewController.storyboardIdentifier) as? StartUpViewController else {
             fatalError("Unable to instantiate StartUpViewController.")
@@ -101,6 +108,9 @@ class MessagesViewController: MSMessagesAppViewController {
         return controller
     }
     
+    /// Set up the controller and add it as a child.
+    ///
+    /// - parameter controller: Child controller
     private func setupController(for controller : UIViewController) {
         addChildViewController(controller)
         
@@ -117,7 +127,11 @@ class MessagesViewController: MSMessagesAppViewController {
     }
 }
 
+// MARK: - Delegate Methods Handling
 extension MessagesViewController : StartUpViewControllerDelegate {
+    /// Called when user tapped the start button to start the game.
+    ///
+    /// - parameter controller: Of which controller
     func startDidTap(_ controller: StartUpViewController) {
         requestPresentationStyle(.expanded)
     }
