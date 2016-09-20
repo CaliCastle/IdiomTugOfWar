@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -82,12 +83,75 @@
                     <view key="view" contentMode="scaleToFill" id="Gjx-7V-by9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dqs-Xh-iUN">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="093-jt-cbc">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="093-jt-cbc" firstAttribute="centerX" secondItem="Gjx-7V-by9" secondAttribute="centerX" id="0VZ-pP-8Pi"/>
+                            <constraint firstItem="Dqs-Xh-iUN" firstAttribute="centerX" secondItem="Gjx-7V-by9" secondAttribute="centerX" id="4pT-ds-iFY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="093-jt-cbc" secondAttribute="trailing" constant="10" id="EYk-2L-V62"/>
+                            <constraint firstItem="093-jt-cbc" firstAttribute="top" secondItem="Dqs-Xh-iUN" secondAttribute="bottom" constant="50" id="FGP-aV-P0F"/>
+                            <constraint firstItem="093-jt-cbc" firstAttribute="centerY" secondItem="Gjx-7V-by9" secondAttribute="centerY" id="W7O-dW-Cvu"/>
+                            <constraint firstItem="093-jt-cbc" firstAttribute="leading" secondItem="Gjx-7V-by9" secondAttribute="leadingMargin" constant="10" id="y1t-FZ-HrX"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gR2-48-efM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1583" y="152"/>
+            <point key="canvasLocation" x="2335" y="152"/>
+        </scene>
+        <!--Collaborate View Controller-->
+        <scene sceneID="XwD-OD-ywv">
+            <objects>
+                <viewController storyboardIdentifier="CollaborateViewController" id="GTx-9L-wfP" customClass="CollaborateViewController" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SKX-7B-yXh"/>
+                        <viewControllerLayoutGuide type="bottom" id="tZi-3O-Ay8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dzL-4N-dxh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入第一个字" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="ILg-3O-iC5">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="0k5-E2-pgF"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开始成语接龙挑战" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E1Y-Ma-jRq">
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="E1Y-Ma-jRq" firstAttribute="centerX" secondItem="dzL-4N-dxh" secondAttribute="centerX" id="2tY-nT-0i3"/>
+                            <constraint firstItem="ILg-3O-iC5" firstAttribute="centerY" secondItem="dzL-4N-dxh" secondAttribute="centerY" id="3lC-SM-7fq"/>
+                            <constraint firstItem="ILg-3O-iC5" firstAttribute="leading" secondItem="dzL-4N-dxh" secondAttribute="leadingMargin" id="I9S-vA-8OA"/>
+                            <constraint firstItem="ILg-3O-iC5" firstAttribute="trailing" secondItem="dzL-4N-dxh" secondAttribute="trailingMargin" id="ceH-hd-gyA"/>
+                            <constraint firstItem="ILg-3O-iC5" firstAttribute="top" secondItem="E1Y-Ma-jRq" secondAttribute="bottom" constant="50" id="dtx-RC-rOI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textField" destination="ILg-3O-iC5" id="aoq-3W-o7G"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qt3-6t-Ypf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1568.8" y="151.57421289355324"/>
         </scene>
     </scenes>
 </document>

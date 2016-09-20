@@ -12,6 +12,11 @@ class InProgressViewController: UIViewController {
 
     static let storyboardIdentifier = "InProgressViewController"
     
+    weak var delegate: InProgressViewControllerDelegate?
+    
+    var firstCharacter: String?
+    var idiom: Idiom?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,4 +38,8 @@ class InProgressViewController: UIViewController {
     }
     */
 
+}
+
+protocol InProgressViewControllerDelegate: class {
+    func inProgressViewController(_ controller: InProgressViewController, didEnter value: String)
 }

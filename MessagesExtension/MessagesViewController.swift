@@ -60,14 +60,23 @@ class MessagesViewController: MSMessagesAppViewController {
     
     override func willTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
         // Called before the extension transitions to a new presentation style.
-    
+        guard let conversation = activeConversation else {
+            fatalError("Expected an active conversation")
+        }
+        
         // Use this method to prepare for the change in presentation style.
+        presentViewController(for: conversation, with: presentationStyle)
     }
     
     override func didTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
         // Called after the extension transitions to a new presentation style.
     
         // Use this method to finalize any behaviors associated with the change in presentation style.
+    }
+    
+    override func didSelect(_ message: MSMessage, conversation: MSConversation) {
+        super.didSelect(message, conversation: conversation)
+        
     }
     
     /// Present a new controller based on different conditions.
@@ -80,7 +89,13 @@ class MessagesViewController: MSMessagesAppViewController {
         if style == .compact {
             controller = instantiateStartUpController()
         } else {
-            controller = UIViewController()
+            if conversation.selectedMessage == nil {
+                // Begin the challenge
+                controller = instantiateCollaborateController()
+            } else {
+                // Continue the challenge
+                controller = instantiateInProgressController()
+            }
         }
         
         // Remove any existing child controllers.
@@ -108,6 +123,26 @@ class MessagesViewController: MSMessagesAppViewController {
         return controller
     }
     
+    private func instantiateCollaborateController() -> UIViewController {
+        guard let controller = storyboard?.instantiateViewController(withIdentifier: CollaborateViewController.storyboardIdentifier) as? CollaborateViewController else {
+            fatalError("Unable to instantiate CollaborateViewController")
+        }
+        
+        controller.delegate = self
+        
+        return controller
+    }
+    
+    private func instantiateInProgressController() -> UIViewController {
+        guard let controller = storyboard?.instantiateViewController(withIdentifier: InProgressViewController.storyboardIdentifier) as? InProgressViewController else {
+            fatalError("Unable to instantiate InProgressViewController.")
+        }
+        
+        controller.delegate = self
+        
+        return controller
+    }
+    
     /// Set up the controller and add it as a child.
     ///
     /// - parameter controller: Child controller
@@ -125,14 +160,48 @@ class MessagesViewController: MSMessagesAppViewController {
         
         controller.didMove(toParentViewController: self)
     }
+    
+    fileprivate func composeMessage(saying caption: String, session: MSSession? = nil) -> MSMessage {
+        let layout = MSMessageTemplateLayout()
+//        layout.image = 
+        layout.caption = caption
+        
+        let message = MSMessage(session: session ?? MSSession())
+//        message.url
+        message.layout = layout
+        
+        return message
+    }
 }
 
 // MARK: - Delegate Methods Handling
-extension MessagesViewController : StartUpViewControllerDelegate {
+extension MessagesViewController: StartUpViewControllerDelegate {
     /// Called when user tapped the start button to start the game.
     ///
     /// - parameter controller: Of which controller
     func startDidTap(_ controller: StartUpViewController) {
         requestPresentationStyle(.expanded)
+    }
+}
+
+extension MessagesViewController: InProgressViewControllerDelegate {
+    func inProgressViewController(_ controller: InProgressViewController, didEnter value: String) {
+        
+    }
+}
+
+extension MessagesViewController: CollaborateViewControllerDelegate {
+    func beginChallenge(with character: String) {
+        guard let conversation = activeConversation else { fatalError("No conversation given.") }
+        
+        let message = composeMessage(saying: "敢不敢接受我的成语接龙挑战？")
+        
+        conversation.insert(message) { error in
+            if let error = error {
+                print(error)
+            }
+        }
+        
+        dismiss()
     }
 }

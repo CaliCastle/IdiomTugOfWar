@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		F1AFCD411D90D5F300765553 /* InProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AFCD401D90D5F300765553 /* InProgressViewController.swift */; };
 		F1AFCD451D90E06100765553 /* Idiom.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AFCD441D90E06100765553 /* Idiom.swift */; };
+		F1AFCD4A1D90E3C500765553 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AFCD491D90E3C500765553 /* Credentials.swift */; };
+		F1AFCD4C1D90E5DA00765553 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AFCD4B1D90E5DA00765553 /* APIClient.swift */; };
+		F1AFCD4E1D90F0DB00765553 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AFCD4D1D90F0DB00765553 /* Helper.swift */; };
+		F1AFCD501D911DEE00765553 /* CollaborateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AFCD4F1D911DEE00765553 /* CollaborateViewController.swift */; };
 		F1C129481D8A67E1001654A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1C129471D8A67E1001654A9 /* Assets.xcassets */; };
 		F1C1294F1D8A67E2001654A9 /* MessagesExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F1C1294E1D8A67E2001654A9 /* MessagesExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F1C129541D8A67E2001654A9 /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C129531D8A67E2001654A9 /* Messages.framework */; };
@@ -45,6 +49,10 @@
 /* Begin PBXFileReference section */
 		F1AFCD401D90D5F300765553 /* InProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InProgressViewController.swift; sourceTree = "<group>"; };
 		F1AFCD441D90E06100765553 /* Idiom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Idiom.swift; path = Model/Idiom.swift; sourceTree = "<group>"; };
+		F1AFCD491D90E3C500765553 /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Credentials.swift; path = Helpers/Credentials.swift; sourceTree = "<group>"; };
+		F1AFCD4B1D90E5DA00765553 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIClient.swift; path = Helpers/APIClient.swift; sourceTree = "<group>"; };
+		F1AFCD4D1D90F0DB00765553 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Helper.swift; path = Helpers/Helper.swift; sourceTree = "<group>"; };
+		F1AFCD4F1D911DEE00765553 /* CollaborateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollaborateViewController.swift; sourceTree = "<group>"; };
 		F1C129441D8A67E1001654A9 /* IdiomTugOfWar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IdiomTugOfWar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1C129471D8A67E1001654A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F1C129491D8A67E1001654A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -83,6 +91,7 @@
 				F1C129561D8A67E2001654A9 /* MessagesViewController.swift */,
 				F1CB37071D909BFE0021E78B /* StartUpViewController.swift */,
 				F1AFCD401D90D5F300765553 /* InProgressViewController.swift */,
+				F1AFCD4F1D911DEE00765553 /* CollaborateViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -90,6 +99,9 @@
 		F1AFCD461D90E33800765553 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				F1AFCD491D90E3C500765553 /* Credentials.swift */,
+				F1AFCD4B1D90E5DA00765553 /* APIClient.swift */,
+				F1AFCD4D1D90F0DB00765553 /* Helper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -247,9 +259,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1AFCD451D90E06100765553 /* Idiom.swift in Sources */,
+				F1AFCD501D911DEE00765553 /* CollaborateViewController.swift in Sources */,
+				F1AFCD4E1D90F0DB00765553 /* Helper.swift in Sources */,
 				F1CB37081D909BFE0021E78B /* StartUpViewController.swift in Sources */,
+				F1AFCD4A1D90E3C500765553 /* Credentials.swift in Sources */,
 				F1C129571D8A67E2001654A9 /* MessagesViewController.swift in Sources */,
 				F1AFCD411D90D5F300765553 /* InProgressViewController.swift in Sources */,
+				F1AFCD4C1D90E5DA00765553 /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
