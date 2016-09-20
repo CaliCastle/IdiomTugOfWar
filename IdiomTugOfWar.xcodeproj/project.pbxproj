@@ -87,6 +87,13 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		F1AFCD461D90E33800765553 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		F1C1293D1D8A67E1001654A9 = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +133,7 @@
 		F1C129551D8A67E2001654A9 /* MessagesExtension */ = {
 			isa = PBXGroup;
 			children = (
+				F1AFCD461D90E33800765553 /* Helpers */,
 				F1AFCD431D90DFF300765553 /* Controller */,
 				F1AFCD421D90DFDE00765553 /* Model */,
 				F1C129581D8A67E2001654A9 /* MainInterface.storyboard */,
