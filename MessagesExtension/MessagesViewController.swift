@@ -11,6 +11,18 @@ import Messages
 
 class MessagesViewController: MSMessagesAppViewController {
     
+    var currentIdiom: String? {
+        didSet {
+            guard let currentIdiom = currentIdiom else {
+                return
+            }
+            
+            challenge.lastIdiom = currentIdiom
+        }
+    }
+    
+    var challenge: Challenge = Challenge()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -50,6 +62,9 @@ class MessagesViewController: MSMessagesAppViewController {
     
     override func didStartSending(_ message: MSMessage, conversation: MSConversation) {
         // Called when the user taps the send button.
+        if currentIdiom?.characters.count != 1 {
+            Idiom.checkValidity(for: currentIdiom!, self)
+        }
     }
     
     override func didCancelSending(_ message: MSMessage, conversation: MSConversation) {
@@ -89,12 +104,14 @@ class MessagesViewController: MSMessagesAppViewController {
         if style == .compact {
             controller = instantiateStartUpController()
         } else {
-            if conversation.selectedMessage == nil {
+            if let message = conversation.selectedMessage {
+                // Continue the challenge
+                print(message.url!)
+                
+                controller = instantiateInProgressController(conversation)
+            } else {
                 // Begin the challenge
                 controller = instantiateCollaborateController()
-            } else {
-                // Continue the challenge
-                controller = instantiateInProgressController()
             }
         }
         
@@ -133,12 +150,17 @@ class MessagesViewController: MSMessagesAppViewController {
         return controller
     }
     
-    private func instantiateInProgressController() -> UIViewController {
+    private func instantiateInProgressController(_ conversation: MSConversation) -> UIViewController {
         guard let controller = storyboard?.instantiateViewController(withIdentifier: InProgressViewController.storyboardIdentifier) as? InProgressViewController else {
             fatalError("Unable to instantiate InProgressViewController.")
         }
         
+        let challenge = Challenge(message: conversation.selectedMessage)
+        let idiom = challenge?.lastIdiom
+        
         controller.delegate = self
+        controller.firstCharacter = idiom?.substring(from: (idiom?.characters.index(before: (idiom?.characters.endIndex)!))!)
+        
         
         return controller
     }
@@ -146,7 +168,7 @@ class MessagesViewController: MSMessagesAppViewController {
     /// Set up the controller and add it as a child.
     ///
     /// - parameter controller: Child controller
-    private func setupController(for controller : UIViewController) {
+    func setupController(for controller : UIViewController) {
         addChildViewController(controller)
         
         controller.view.frame = view.bounds
@@ -161,16 +183,37 @@ class MessagesViewController: MSMessagesAppViewController {
         controller.didMove(toParentViewController: self)
     }
     
-    fileprivate func composeMessage(saying caption: String, session: MSSession? = nil) -> MSMessage {
+    fileprivate func composeMessage(saying caption: String, and summary: String, session: MSSession? = nil) -> MSMessage {
+        var components = URLComponents()
+        components.queryItems = challenge.queryItems
+        
         let layout = MSMessageTemplateLayout()
 //        layout.image = 
         layout.caption = caption
         
         let message = MSMessage(session: session ?? MSSession())
-//        message.url
+        
+        message.url = components.url!
+        message.summaryText = summary
         message.layout = layout
         
         return message
+    }
+    
+    fileprivate func insertMessage(_ messageText: String, _ summary: String) {
+        guard let conversation = activeConversation else { fatalError("No conversation given.") }
+        
+        let message = composeMessage(saying: messageText, and: summary, session: conversation.selectedMessage?.session)
+        
+        conversation.insert(message) { error in
+            if let error = error {
+                print(error)
+            }
+        }
+        
+//        dismiss()
+        
+        requestPresentationStyle(.compact)
     }
 }
 
@@ -186,22 +229,42 @@ extension MessagesViewController: StartUpViewControllerDelegate {
 
 extension MessagesViewController: InProgressViewControllerDelegate {
     func inProgressViewController(_ controller: InProgressViewController, didEnter value: String) {
+        currentIdiom = value
         
+        insertMessage("我的接龙：'\(value)'", "接龙:'\(value)'")
     }
 }
 
 extension MessagesViewController: CollaborateViewControllerDelegate {
     func beginChallenge(with character: String) {
-        guard let conversation = activeConversation else { fatalError("No conversation given.") }
+        currentIdiom = character
         
-        let message = composeMessage(saying: "敢不敢接受我的成语接龙挑战？")
-        
-        conversation.insert(message) { error in
-            if let error = error {
-                print(error)
-            }
+        insertMessage("敢不敢接受我的成语接龙挑战？", "开启了成语接龙挑战")
+    }
+}
+
+extension MessagesViewController: ResultViewControllerDelegate {
+    func resultDismissed() {
+        print("Result dismissed.")
+    }
+}
+
+extension MessagesViewController: IdiomDelegate {
+    func validityChecked(valid: Bool) {
+        guard let controller = storyboard?.instantiateViewController(withIdentifier: ResultViewController.storyboardIdentifier) as? ResultViewController else {
+            return
         }
         
-        dismiss()
+        controller.delegate = self
+        controller.idiom = currentIdiom
+        controller.success = valid
+        
+        for child in childViewControllers {
+            child.willMove(toParentViewController: nil)
+            child.view.removeFromSuperview()
+            child.removeFromParentViewController()
+        }
+        
+        setupController(for: controller)
     }
 }

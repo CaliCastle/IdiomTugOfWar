@@ -9,5 +9,18 @@
 import UIKit
 
 class Idiom: NSObject {
+    
+    static let queryItemKey = "Idiom"
+    
+    weak var delegate: IdiomDelegate?
+    
+    class func checkValidity(for value: String, _ delegatable: IdiomDelegate) {
+        APIClient.shared.request(for: value) { (valid) in
+            delegatable.validityChecked(valid: valid)
+        }
+    }
+}
 
+protocol IdiomDelegate: class {
+    func validityChecked(valid: Bool)
 }

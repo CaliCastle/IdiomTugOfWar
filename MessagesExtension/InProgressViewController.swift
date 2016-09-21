@@ -15,12 +15,18 @@ class InProgressViewController: UIViewController {
     weak var delegate: InProgressViewControllerDelegate?
     
     var firstCharacter: String?
-    var idiom: Idiom?
+    
+    @IBOutlet weak var firstCharacterLabel: UILabel!
+    @IBOutlet weak var textField: UITextField!
+    
+    let limitLength = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        textField.delegate = self
+        firstCharacterLabel.text = firstCharacter
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,6 +44,36 @@ class InProgressViewController: UIViewController {
     }
     */
 
+}
+
+extension InProgressViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if (textField.text?.characters.count)! != limitLength {
+            let alert = UIAlertController(title: "字数错误", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "重试", style: .default, handler: { (action) in
+                
+            }))
+            present(alert, animated: true, completion: { 
+                
+            })
+            
+            return false
+        }
+        
+        textField.resignFirstResponder()
+        delegate?.inProgressViewController(self, didEnter: firstCharacter! + textField.text!)
+        
+        return false
+    }
+    
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        guard let text = textField.text else { return true }
+//        
+//        // TODO: Only Chinese.
+//        
+//        let newLength = text.characters.count + string.characters.count - range.length
+//        return newLength <= limitLength
+//    }
 }
 
 protocol InProgressViewControllerDelegate: class {

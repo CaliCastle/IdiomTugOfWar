@@ -84,31 +84,125 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dqs-Xh-iUN">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="继续接龙" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dqs-Xh-iUN">
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="093-jt-cbc">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入成语" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="093-jt-cbc">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="f8U-Wo-IfQ"/>
+                                </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gz9-BP-Bpf">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="77" id="fKG-cy-Q38"/>
+                                    <constraint firstAttribute="height" constant="40" id="m1A-nb-uqb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="093-jt-cbc" firstAttribute="centerX" secondItem="Gjx-7V-by9" secondAttribute="centerX" id="0VZ-pP-8Pi"/>
                             <constraint firstItem="Dqs-Xh-iUN" firstAttribute="centerX" secondItem="Gjx-7V-by9" secondAttribute="centerX" id="4pT-ds-iFY"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="093-jt-cbc" secondAttribute="trailing" constant="10" id="EYk-2L-V62"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="093-jt-cbc" secondAttribute="trailing" id="EYk-2L-V62"/>
                             <constraint firstItem="093-jt-cbc" firstAttribute="top" secondItem="Dqs-Xh-iUN" secondAttribute="bottom" constant="50" id="FGP-aV-P0F"/>
                             <constraint firstItem="093-jt-cbc" firstAttribute="centerY" secondItem="Gjx-7V-by9" secondAttribute="centerY" id="W7O-dW-Cvu"/>
-                            <constraint firstItem="093-jt-cbc" firstAttribute="leading" secondItem="Gjx-7V-by9" secondAttribute="leadingMargin" constant="10" id="y1t-FZ-HrX"/>
+                            <constraint firstItem="Gz9-BP-Bpf" firstAttribute="centerY" secondItem="Gjx-7V-by9" secondAttribute="centerY" id="WAy-JM-yvJ"/>
+                            <constraint firstItem="093-jt-cbc" firstAttribute="leading" secondItem="Gz9-BP-Bpf" secondAttribute="trailing" constant="8" id="cXK-XJ-d0e"/>
+                            <constraint firstItem="Gz9-BP-Bpf" firstAttribute="leading" secondItem="Gjx-7V-by9" secondAttribute="leadingMargin" id="gUg-6L-JGD"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="firstCharacterLabel" destination="Gz9-BP-Bpf" id="OwV-NI-gqE"/>
+                        <outlet property="textField" destination="093-jt-cbc" id="Rx6-VC-5S1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gR2-48-efM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2335" y="152"/>
+            <point key="canvasLocation" x="2333.5999999999999" y="151.57421289355324"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ID8-FC-6Q9">
+            <objects>
+                <viewController storyboardIdentifier="Waiting" id="8gD-uC-HKv" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="T8L-W3-X7d"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hdl-wA-dgh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JN2-MB-Q4f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="等待好友接龙..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRr-df-wUo">
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jRr-df-wUo" firstAttribute="centerX" secondItem="JN2-MB-Q4f" secondAttribute="centerX" id="GJp-87-zsb"/>
+                            <constraint firstItem="jRr-df-wUo" firstAttribute="centerY" secondItem="JN2-MB-Q4f" secondAttribute="centerY" id="x6C-P6-cir"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kea-7O-pY6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3007" y="152"/>
+        </scene>
+        <!--Result View Controller-->
+        <scene sceneID="d3r-hY-Moq">
+            <objects>
+                <viewController storyboardIdentifier="ResultViewController" id="B7R-gC-j2C" customClass="ResultViewController" customModule="MessagesExtension" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZHp-Zy-RjU"/>
+                        <viewControllerLayoutGuide type="bottom" id="wq9-Uu-6q0"/>
+                    </layoutGuides>
+                    <view key="view" userInteractionEnabled="NO" contentMode="scaleToFill" id="wZx-OD-wnX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Idiom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZN3-0J-Mvu">
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="恭喜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3c1-AI-hNq">
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" red="0.91793945898585516" green="0.9551489637305699" blue="0.17501561950418601" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="是一个成语" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="foP-23-DDh">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.30049055808110381" green="0.7092676292730965" blue="0.35203128384014742" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="foP-23-DDh" firstAttribute="top" secondItem="ZN3-0J-Mvu" secondAttribute="bottom" constant="8" id="1iO-Xf-jNu"/>
+                            <constraint firstItem="ZN3-0J-Mvu" firstAttribute="top" secondItem="3c1-AI-hNq" secondAttribute="bottom" constant="8.5" id="Glr-6c-ATg"/>
+                            <constraint firstItem="3c1-AI-hNq" firstAttribute="centerX" secondItem="wZx-OD-wnX" secondAttribute="centerX" id="Jbj-tm-LxX"/>
+                            <constraint firstItem="ZN3-0J-Mvu" firstAttribute="centerX" secondItem="wZx-OD-wnX" secondAttribute="centerX" id="UOB-21-PD8"/>
+                            <constraint firstItem="foP-23-DDh" firstAttribute="centerX" secondItem="wZx-OD-wnX" secondAttribute="centerX" id="W63-CX-JS3"/>
+                            <constraint firstItem="ZN3-0J-Mvu" firstAttribute="centerY" secondItem="wZx-OD-wnX" secondAttribute="centerY" constant="-20" id="X4l-Ka-2vP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="detailLabel" destination="foP-23-DDh" id="Xfs-Se-zmE"/>
+                        <outlet property="idiomLabel" destination="ZN3-0J-Mvu" id="pvt-DD-Aok"/>
+                        <outlet property="statusLabel" destination="3c1-AI-hNq" id="VIg-Gb-8s4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DQa-37-8et" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3676" y="152"/>
         </scene>
         <!--Collaborate View Controller-->
         <scene sceneID="XwD-OD-ywv">

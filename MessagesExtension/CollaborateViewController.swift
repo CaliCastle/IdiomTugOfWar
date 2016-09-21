@@ -54,14 +54,14 @@ extension CollaborateViewController: UITextFieldDelegate {
     /// - parameter string:    String to be replaced.
     ///
     /// - returns: Should insert or not
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard let text = textField.text else { return true }
-        
-        // TODO: Only Chinese.
-        
-        let newLength = text.characters.count + string.characters.count - range.length
-        return newLength <= limitLength
-    }
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        guard let text = textField.text else { return true }
+//        
+//        // TODO: Only Chinese.
+//        
+//        let newLength = text.characters.count + string.characters.count - range.length
+//        return newLength <= limitLength
+//    }
     
     /// Dismiss keyboard and ask delegate to generate the message.
     ///
@@ -69,6 +69,18 @@ extension CollaborateViewController: UITextFieldDelegate {
     ///
     /// - returns: Should return or not.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if (textField.text?.characters.count)! != limitLength {
+            let alert = UIAlertController(title: "字数错误", message: nil, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "重试", style: .default, handler: { (action) in
+                
+            }))
+            present(alert, animated: true, completion: {
+                
+            })
+            
+            return false
+        }
+        
         textField.resignFirstResponder()
         delegate?.beginChallenge(with: textField.text!)
 

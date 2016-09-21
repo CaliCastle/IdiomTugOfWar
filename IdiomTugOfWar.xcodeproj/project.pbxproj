@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F18772FF1D92255300B8F0F2 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18772FE1D92255300B8F0F2 /* Challenge.swift */; };
+		F18773011D92350100B8F0F2 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18773001D92350100B8F0F2 /* ResultViewController.swift */; };
 		F1AFCD411D90D5F300765553 /* InProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AFCD401D90D5F300765553 /* InProgressViewController.swift */; };
 		F1AFCD451D90E06100765553 /* Idiom.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AFCD441D90E06100765553 /* Idiom.swift */; };
 		F1AFCD4A1D90E3C500765553 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AFCD491D90E3C500765553 /* Credentials.swift */; };
@@ -47,6 +49,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F18772FE1D92255300B8F0F2 /* Challenge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Challenge.swift; path = Model/Challenge.swift; sourceTree = "<group>"; };
+		F18773001D92350100B8F0F2 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		F1AFCD401D90D5F300765553 /* InProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InProgressViewController.swift; sourceTree = "<group>"; };
 		F1AFCD441D90E06100765553 /* Idiom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Idiom.swift; path = Model/Idiom.swift; sourceTree = "<group>"; };
 		F1AFCD491D90E3C500765553 /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Credentials.swift; path = Helpers/Credentials.swift; sourceTree = "<group>"; };
@@ -81,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				F1AFCD441D90E06100765553 /* Idiom.swift */,
+				F18772FE1D92255300B8F0F2 /* Challenge.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -92,6 +97,7 @@
 				F1CB37071D909BFE0021E78B /* StartUpViewController.swift */,
 				F1AFCD401D90D5F300765553 /* InProgressViewController.swift */,
 				F1AFCD4F1D911DEE00765553 /* CollaborateViewController.swift */,
+				F18773001D92350100B8F0F2 /* ResultViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -259,9 +265,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1AFCD451D90E06100765553 /* Idiom.swift in Sources */,
+				F18772FF1D92255300B8F0F2 /* Challenge.swift in Sources */,
 				F1AFCD501D911DEE00765553 /* CollaborateViewController.swift in Sources */,
 				F1AFCD4E1D90F0DB00765553 /* Helper.swift in Sources */,
 				F1CB37081D909BFE0021E78B /* StartUpViewController.swift in Sources */,
+				F18773011D92350100B8F0F2 /* ResultViewController.swift in Sources */,
 				F1AFCD4A1D90E3C500765553 /* Credentials.swift in Sources */,
 				F1C129571D8A67E2001654A9 /* MessagesViewController.swift in Sources */,
 				F1AFCD411D90D5F300765553 /* InProgressViewController.swift in Sources */,
